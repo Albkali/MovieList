@@ -4,7 +4,7 @@ package com.albkali.movielist.API;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class APus {
+public class Movie {
 
     @SerializedName("id")
     @Expose
