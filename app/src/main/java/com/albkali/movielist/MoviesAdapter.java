@@ -4,6 +4,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,6 +24,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
      List<Movie> mMovieList;
 
     Context mContext;
+    private int previousPosition = 0;
 
     public MoviesAdapter(Context context, List<Movie> movieList){
 
@@ -35,7 +37,8 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         TextView movieTitle;
         ImageView movieBanner;
         public MovieViewHolder(@NonNull View itemView) {
-            super(itemView); movieTitle=(TextView)itemView.findViewById(R.id.tv_movie_title);
+            super(itemView);
+            movieTitle=(TextView)itemView.findViewById(R.id.tv_movie_title);
             movieBanner=(ImageView)itemView.findViewById(R.id.iv_movie_banner);
         }
 
@@ -64,6 +67,22 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int i) {
         Log.d(TAG, "#" + i);
         holder.bind(i);
+        if(i > previousPosition){ // We are scrolling DOWN
+
+            AnimationUtil.animate(holder, true);
+            AnimationUtil.scaleAnimation(holder,true,0, Animation.INFINITE);
+
+
+        }else{ // We are scrolling UP
+
+            AnimationUtil.animate(holder, false);
+            AnimationUtil.scaleAnimation(holder,false,0, Animation.RESTART);
+
+
+        }
+
+        previousPosition = i;
+
 
     }
 
