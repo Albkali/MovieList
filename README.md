@@ -1,6 +1,6 @@
 # MovieList
 ### Description
-movie list applied linear layout .....
+Application applied type of RecyclerView Layout Manager, Animation View, and APIClient.
 #
 <h3>LinearLayoutManager Horizontal </h3>
 
