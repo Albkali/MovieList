@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         mMovieRecyclerView = (RecyclerView) findViewById(R.id.rv_movies);
 
        // LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        GridLayoutManager layoutManager = new GridLayoutManager(this,2);
+//        GridLayoutManager layoutManager = new GridLayoutManager(this,2);
 //        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
 
 //        LinearLayoutManager layoutManager =new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 ////
-//        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
+        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL);
 
 
 
@@ -62,12 +62,15 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<List<Movie>>() {
             @Override
             public void onResponse(Call<List<Movie>> call, Response<List<Movie>> response) {
-                mMoviesList = response.body(); Log.d("TAG","Response = "+mMoviesList); mAdapter.setMovieList(mMoviesList);
+                mMoviesList = response.body(); Log.d("TAG","Response = "+mMoviesList);
+                mAdapter.setMovieList(mMoviesList);
             }
             @Override
 
-            public void onFailure(Call<List<Movie>> call, Throwable t) { Log.d("TAG","Response = "+t.toString());
-            } });
+            public void onFailure(Call<List<Movie>> call, Throwable t) {
+                Log.d("TAG","Response = "+t.toString());
+            }
+        });
 
 
     }
@@ -99,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.gridView:
                 GridLayoutManager mGridLayoutManager = new GridLayoutManager(this, 3); // (Context context, int spanCount)
                 mMovieRecyclerView.setLayoutManager(mGridLayoutManager);
+
                 break;
             case R.id.staggeredViewHorizontal:
                 StaggeredGridLayoutManager mStaggeredHorizontalLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.HORIZONTAL); // (int spanCount, int orientation)

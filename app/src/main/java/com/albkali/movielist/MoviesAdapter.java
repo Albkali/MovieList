@@ -70,13 +70,13 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         if(i > previousPosition){ // We are scrolling DOWN
 
             AnimationUtil.animate(holder, true);
-            AnimationUtil.scaleAnimation(holder,true,0, Animation.INFINITE);
+            AnimationUtil.scaleAnimation(holder,true,0, Animation.RESTART);
 
 
         }else{ // We are scrolling UP
 
-            AnimationUtil.animate(holder, false);
-            AnimationUtil.scaleAnimation(holder,false,0, Animation.RESTART);
+            AnimationUtil.animate(holder, true);
+            AnimationUtil.scaleAnimation(holder,true,0, Animation.RESTART);
 
 
         }
