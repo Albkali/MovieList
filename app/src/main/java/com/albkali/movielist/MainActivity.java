@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         mMovieRecyclerView = (RecyclerView) findViewById(R.id.rv_movies);
 
        // LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-//        GridLayoutManager layoutManager = new GridLayoutManager(this,2);
+        GridLayoutManager layoutManager = new GridLayoutManager(this,2);
 //        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
 
 //        LinearLayoutManager layoutManager =new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 ////
-        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL);
+//        StaggeredGridLayoutManager layoutManager = new StaggeredGridLayoutManager(3,StaggeredGridLayoutManager.VERTICAL);
 
 
 
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 mMovieRecyclerView.setLayoutManager(mLinearLayoutManagerVertical);
                 break;
             case R.id.gridView:
-                GridLayoutManager mGridLayoutManager = new GridLayoutManager(this, 3); // (Context context, int spanCount)
+                GridLayoutManager mGridLayoutManager = new GridLayoutManager(this, 2); // (Context context, int spanCount)
                 mMovieRecyclerView.setLayoutManager(mGridLayoutManager);
 
                 break;
